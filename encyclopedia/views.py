@@ -59,6 +59,9 @@ def edit(request, entry):
     })
 
 def search(request):
+    if (util.list_entries_match(request.GET["q"])) == True:
+        return HttpResponseRedirect('/' + request.GET["q"])
+
     return render(request, "encyclopedia/search.html", {
         "entries": util.list_entries_search(request.GET["q"]),
         "searchTerm": request.GET["q"]
