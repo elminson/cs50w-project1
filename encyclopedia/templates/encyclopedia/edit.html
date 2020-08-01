@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
+{% extends "encyclopedia/layout.html" %}
 
-</body>
-</html>
+{% block title %}
+Encyclopedia
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'edit' %}/{ entry }" method="post">
+	{% csrf_token %}
+	<input class="search" type="text" name="q" placeholder="Search Encyclopedia" >
+	<input type="submit" name="submit" value="Submit">
+</form>
+
+{% endblock %}

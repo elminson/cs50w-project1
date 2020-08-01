@@ -12,7 +12,7 @@
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
                 <h2>Wiki</h2>
-                <form action="/search">
+                <form action="{% url 'search' %}">
                     {% if  searchTerm %}
                     <input class="search" type="text" value="{{ searchTerm }}" name="q" placeholder="Search Encyclopedia" >
                     {% else %}
