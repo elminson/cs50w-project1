@@ -8,9 +8,13 @@ Encyclopedia
 <h1>All Pages</h1>
 {{ searchTerm }}
 <ul>
-	{% for entry in entries %}
-	<li>{{ entry }}</li>
-	{% endfor %}
+	{% if entries %}
+		{% for entry in entries %}
+		<li><a href="{{ entry }}"> {{ entry }}</a></li>
+		{% endfor %}
+	{% else %}
+		<h2>Not found</h2>
+	{% endif %}
 </ul>
 
 {% endblock %}

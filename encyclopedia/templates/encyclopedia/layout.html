@@ -13,7 +13,11 @@
             <div class="sidebar col-lg-2 col-md-3">
                 <h2>Wiki</h2>
                 <form action="/search">
-                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                    {% if  searchTerm %}
+                    <input class="search" type="text" value="{{ searchTerm }}" name="q" placeholder="Search Encyclopedia" >
+                    {% else %}
+                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia" >
+                    {% endif %}
                 </form>
                 <div>
                     <a href="{% url 'index' %}">Home</a>

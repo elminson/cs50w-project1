@@ -12,6 +12,13 @@ def list_entries():
     return list(sorted(re.sub(r"\.md$", "", filename)
                 for filename in filenames if filename.endswith(".md")))
 
+def list_entries_search(searchTerm):
+    """
+    Returns a list of all names of encyclopedia entries.
+    """
+    _, filenames = default_storage.listdir("entries")
+    return list(sorted(re.sub(r"\.md$", "", filename)
+                for filename in filenames if (filename.startswith(searchTerm.capitalize())or filename.startswith(searchTerm.lower())) and filename.endswith(".md")))
 
 def save_entry(title, content):
     """
