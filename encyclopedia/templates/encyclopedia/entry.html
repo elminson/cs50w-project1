@@ -5,8 +5,10 @@
 {% endblock %}
 
 {% block body %}
-
+{% if entry == '404' %}
+<h1 style="color:red;">Page not Found: 404 </h1>
+{% else %}
 {{ entry | safe}}
-
 <a href="{% url 'edit' %}/{{ title }}">Edit</a>
+{% endif %}
 {% endblock %}
